@@ -23,7 +23,12 @@
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
     function buildPeter() {
-
+      let person = {
+        firstName:'Peter',
+        lastName:'Pan',
+        age:12
+      }
+      return person
     }
 
     // 👉 CHALLENGE 2
@@ -31,7 +36,11 @@
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
-
+      const person = {}
+      person.firstName = firstName;
+      person.lastName = lastName;
+      person.age = age;
+      return person
     }
 
     // 👉 CHALLENGE 3
@@ -42,8 +51,15 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
-
+    function deletePrice(person) {
+      //console.log(person)
+      if (person.price||person.price>=0) {
+        delete person.price
+        return person
+      } else {
+        person.priceless = true
+        return person
+      } 
     }
 
     // 👉 CHALLENGE 4
@@ -53,7 +69,12 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
-
+      if (arr.length%2===0) {
+        return true        
+      } else {
+        return false
+      }
+      
     }
 
     // 👉 CHALLENGE 5
@@ -62,8 +83,13 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
-
+    function firstOrLast(arr, bol) {
+      if (arr&&bol===true) {
+        return arr[0]
+      } else {
+        return arr.at(-1)
+      } 
+      
     }
 
     // 👉 CHALLENGE 6
@@ -72,8 +98,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(arr, umm) {
+      arr[arr.length] = umm
+      return arr
     }
 
     // 👉 CHALLENGE 7
@@ -88,8 +115,18 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(a) {
+      const word = a.split('') //split array
+      const word1 = [] //new array
+      for(let i in word){
+        if (word[i]==='x') {  //find and ignore all 'x' in the array
+        } else {
+          word1[word1.length] = word[i] // add each character to new array
+        } 
+      }
+      const result = word1.join(""); //removes " and , then adds to new variable
+      
+      return result
     }
 
     // 👉 CHALLENGE 8
@@ -101,8 +138,17 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(arr, b) {
+      const arrSplit = arr.split('')
+      const newArr = []
+      for(let i in arrSplit){
+        if (arrSplit[i]===b) {
+        } else {
+          newArr[newArr.length] = arrSplit[i]
+        }  
+      }
+      const result = newArr.join("")
+      return result
     }
 
     // 👉 CHALLENGE 9
@@ -114,8 +160,15 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+      const result = [] 
+      for(let i in obj){
+        if (i==='age'||i==='married') {
+        } else {
+          result[result.length] = i 
+        }
+      }
+      return result
     }
 
     // 🧪 TESTS, do not work below this line
